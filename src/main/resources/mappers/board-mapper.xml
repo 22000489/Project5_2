@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+<mapper namespace="BOARD">
+    <insert id="insertBoard">
+        insert into BOARD (firstName, lastName, birthday, gender, email, phone, information, userType, account, photo)
+        values (#{firstName}, #{lastName}, #{birthday}, #{gender}, #{email}, #{phone}, #{information}, #{userType}, #{account}, #{photo})
+    </insert>
+    <update id="updateBoard">
+        update BOARD
+        set firstName=#{firstName}, lastName=#{lastName}, birthday=#{birthday}, gender=#{gender}, email=#{email}, phone=#{phone}, information=#{information}, userType=#{userType}, account=#{account}, photo=#{photo}
+        where id=#{id}
+    </update>
+    <delete id="deleteBoard">
+        delete from BOARD where id=#{id}
+    </delete>
+    <select id="getBoard" resultType="board">
+        select * from BOARD where id=#{id}
+    </select>
+    <select id="getBoardList" resultType="board">
+        select * from BOARD order by id desc
+    </select>
+</mapper>
